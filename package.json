@@ -13,8 +13,8 @@
     "markdown",
     "unified"
   ],
-  "repository": "Wyrdix/micromark-extension-gfm-task-list-item",
-  "bugs": "https://github.com/Wyrdix/micromark-extension-misc-radio-list-item/issues",
+  "repository": "Pedagologues/micromark-extension-gfm-task-list-item",
+  "bugs": "https://github.com/Pedagologues/micromark-extension-misc-radio-list-item/issues",
   "author": "Wyrdix <wyrdix@gmail.com>",
   "contributors": [
     "Wyrdix <wyrdix@gmail.com>"
