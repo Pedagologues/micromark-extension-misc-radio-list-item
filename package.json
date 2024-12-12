@@ -1,0 +1,121 @@
+{
+  "name": "micromark-extension-misc-radio-list-item",
+  "version": "2.1.0",
+  "description": "micromark extension to support radio list items",
+  "license": "MIT",
+  "keywords": [
+    "micromark",
+    "micromark-extension",
+    "task",
+    "list",
+    "item",
+    "todo",
+    "markdown",
+    "unified"
+  ],
+  "repository": "Wyrdix/micromark-extension-gfm-task-list-item",
+  "bugs": "https://github.com/Wyrdix/micromark-extension-misc-radio-list-item/issues",
+  "author": "Wyrdix <wyrdix@gmail.com>",
+  "contributors": [
+    "Wyrdix <wyrdix@gmail.com>"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "files": [
+    "dev/",
+    "lib/",
+    "index.d.ts",
+    "index.js"
+  ],
+  "exports": {
+    "development": "./dev/index.js",
+    "default": "./index.js"
+  },
+  "dependencies": {
+    "devlop": "^1.0.0",
+    "micromark-factory-space": "^2.0.0",
+    "micromark-util-character": "^2.0.0",
+    "micromark-util-symbol": "^2.0.0",
+    "micromark-util-types": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "c8": "^10.0.0",
+    "control-pictures": "^2.0.0",
+    "micromark": "^4.0.0",
+    "micromark-build": "^2.0.0",
+    "prettier": "^3.0.0",
+    "remark-cli": "^12.0.0",
+    "remark-preset-wooorm": "^10.0.0",
+    "type-coverage": "^2.0.0",
+    "typescript": "^5.0.0",
+    "xo": "^0.59.0"
+  },
+  "scripts": {
+    "prepack": "npm run build && npm run format",
+    "build": "tsc --build --clean && tsc --build && type-coverage && micromark-build",
+    "format": "remark . -qfo && prettier . -w --log-level warn && xo --fix",
+    "test-api": "node --conditions development test.js",
+    "test-coverage": "c8 --100 --reporter lcov npm run test-api",
+    "test": "npm run build && npm run format && npm run test-coverage"
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "useTabs": false
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-wooorm"
+    ]
+  },
+  "typeCoverage": {
+    "atLeast": 100,
+    "detail": true,
+    "ignoreCatch": true,
+    "strict": true
+  },
+  "xo": {
+    "prettier": true,
+    "rules": {
+      "unicorn/no-this-assignment": "off",
+      "unicorn/prefer-string-replace-all": "off"
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.d.ts"
+        ],
+        "rules": {
+          "@typescript-eslint/array-type": [
+            "error",
+            {
+              "default": "generic"
+            }
+          ],
+          "@typescript-eslint/ban-types": [
+            "error",
+            {
+              "extendDefaults": true
+            }
+          ],
+          "@typescript-eslint/consistent-type-definitions": [
+            "error",
+            "interface"
+          ]
+        }
+      },
+      {
+        "files": [
+          "test/**/*.js"
+        ],
+        "rules": {
+          "no-await-in-loop": "off"
+        }
+      }
+    ]
+  }
+}
